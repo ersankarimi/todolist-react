@@ -1,5 +1,4 @@
 import React, { useState, useReducer } from 'react'
-import { inputClasses } from './Input.classes'
 import { reducer } from './../../reducer/reducer'
 import { ACTIONS } from './../../reducer/actions'
 import { state } from './../../reducer/state'
@@ -11,7 +10,7 @@ const Input = () => {
 	return (
 		<input
 			type='text'
-			className={inputClasses}
+			className='shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-gray-500 focus:outline-none focus:border-gray-800'
 			placeholder='Add Todo'
 			value={todo}
 			onChange={(e) => {

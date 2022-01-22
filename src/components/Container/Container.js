@@ -1,8 +1,11 @@
 import React from 'react'
-import { containerClasses } from './Container.classes'
 
 const Container = ({ children }) => {
-	return <div className={containerClasses}>{children}</div>
+	return (
+		<div className='bg-white rounded shadow p-6 mt-4 w-full'>
+			{children}
+		</div>
+	)
 }
 
 export default Container

@@ -1,5 +1,4 @@
 import React from 'react'
-import { buttonClasses } from './Button.classes'
 
 const Button = (props) => {
 	const { text, additionalClass } = props
@@ -7,7 +6,7 @@ const Button = (props) => {
 	return (
 		<button
 			type='button'
-			className={`${buttonClasses} ${additionalClass} `}
+			className={`flex-no-shrink p-2 border-2 rounded ${additionalClass} `}
 		>
 			{text ? text : 'undefined'}
 		</button>

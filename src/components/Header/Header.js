@@ -1,8 +1,7 @@
 import React from 'react'
-import { headerClasses } from './Header.classes'
 
 const Header = () => {
-	return <h1 className={headerClasses}>TodoList</h1>
+	return <h1 className='text-gray-800 text-4xl font-semibold'>TodoList</h1>
 }
 
 export default Header
