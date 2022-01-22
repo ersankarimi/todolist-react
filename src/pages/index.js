@@ -1,20 +1,63 @@
-import React from 'react'
+import React, { useState, useReducer } from 'react'
 import Container from './../components/Container/Container'
-import AddButton from '../components/Button/AddButton'
 import Header from '../components/Header/Header'
-import Input from '../components/Input/Input'
 import List from '../components/List/List'
-import Form from './Form'
+import ListItem from '../components/List/ListItem'
+import AddButton from '../components/Button/AddButton'
+import Input from '../components/Input/Input'
+import { reducer } from './../reducer/reducer'
+import { ACTIONS } from './../reducer/actions'
+
+export const initialState = {
+	todos: [],
+}
 
 const Pages = () => {
+	// set todo value
+	const [todo, setTodo] = useState('')
+
+	// set reducer
+	const [todos, dispatch] = useReducer(reducer, initialState)
+
+	// handle todo value input
+	const handleChange = (value) => {
+		setTodo(value)
+	}
+
+	// add todo
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		dispatch({
+			type: ACTIONS.ADD_TODO,
+			payload: {
+				todoValue: todo,
+				id: new Date().getTime().toString(),
+				complete: false,
+			},
+		})
+		setTodo('')
+	}
+
 	return (
 		<Container>
 			<Header />
-			<Form>
-				<Input />
+			<form className='flex mt-4' onSubmit={handleSubmit}>
+				<Input handleChange={handleChange} todo={todo} />
 				<AddButton />
-			</Form>
-			<List />
+			</form>
+
+			<List>
+				{todos.todos &&
+					todos.todos.map((todo) => {
+						return (
+							<ListItem
+								key={todo.id}
+								todo={todo}
+								dispatch={dispatch}
+							/>
+						)
+					})}
+			</List>
 		</Container>
 	)
 }
