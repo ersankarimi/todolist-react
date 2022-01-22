@@ -1,12 +1,13 @@
 import React from 'react'
-import Button from './Button'
 
 const AddButton = () => {
 	return (
-		<Button
-			text='Add'
-			additionalClass='flex-no-shrink p-2 ml-4 border-2 rounded text-teal-500 border-teal-500 hover:text-white hover:bg-teal-500'
-		/>
+		<button
+			type='submit'
+			className='flex-no-shrink p-2 border-2 rounded flex-no-shrink  ml-4  text-teal-500 border-teal-500 hover:text-white hover:bg-teal-500'
+		>
+			Add
+		</button>
 	)
 }
 

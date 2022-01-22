@@ -1,12 +1,14 @@
 import React from 'react'
-import Button from './Button'
 
-const DoneButton = () => {
+const DoneButton = ({ handleDone }) => {
 	return (
-		<Button
-			text='Done'
-			additionalClass='hover:text-white text-green-500 border-green-500 hover:bg-green-500 p-2 ml-4 mr-2'
-		/>
+		<button
+			type='button'
+			className='flex-no-shrink p-2 border-2 rounded hover:text-white text-green-500 border-green-500 hover:bg-green-500 ml-4 mr-2'
+			onClick={handleDone}
+		>
+			Done
+		</button>
 	)
 }
 
