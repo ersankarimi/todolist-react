@@ -1,12 +1,9 @@
 import React from 'react'
-import ListItem from './ListItem'
 
-const List = () => {
+const List = ({ children }) => {
 	return (
 		<div id='todo-list' className='mt-10'>
-			<ul>
-				<ListItem />
-			</ul>
+			<ul>{children}</ul>
 		</div>
 	)
 }
