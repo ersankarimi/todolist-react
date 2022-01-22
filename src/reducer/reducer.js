@@ -24,6 +24,9 @@ export const reducer = (state, action) => {
 			})
 			return { ...state, todos: anjay }
 
+		case ACTIONS.NO_VALUE:
+			return { ...state }
+
 		default:
 			return { ...state }
 	}
