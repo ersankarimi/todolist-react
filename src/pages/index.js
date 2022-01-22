@@ -27,14 +27,21 @@ const Pages = () => {
 	// add todo
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		dispatch({
-			type: ACTIONS.ADD_TODO,
-			payload: {
-				todoValue: todo,
-				id: new Date().getTime().toString(),
-				complete: false,
-			},
-		})
+		if (todo) {
+			dispatch({
+				type: ACTIONS.ADD_TODO,
+				payload: {
+					todoValue: todo,
+					id: new Date().getTime().toString(),
+					complete: false,
+				},
+			})
+		} else {
+			dispatch({
+				type: ACTIONS.NO_VALUE,
+			})
+			alert("Can't Fill To-Do Value with Blank")
+		}
 		setTodo('')
 	}
 
